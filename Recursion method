@@ -1,0 +1,51 @@
+import java.util.*;
+// Recursion method examples 
+public class java {
+    public static int sumOfDigits(int n){
+        if(n==0) return 0;
+        return (n%10 + sumOfDigits(n/10));
+    }
+    public static int fibo(int n){
+        if(n<=1) {
+            return n;
+        }
+        else{
+            return fibo(n-1)+ fibo(n-2);
+        }
+    }
+    private static int revNum = 0;
+    public static int reverse(int n){
+        if(n == 0) return revNum;
+        revNum = revNum*10 + n%10;
+        return reverse(n/10);
+    }
+    public static boolean ispalin(int num){
+        revNum = 0;
+        int rev = reverse(num);
+        return (num==rev);
+    }
+    public static void main(String[] args) {
+        int number = 12321;
+        int res = sumOfDigits(number);
+        System.out.print("Sum of digits is: "+res);
+        System.out.println();
+        int n = 7;
+        System.out.print("Fibonacci Series ");
+        for(int i=0; i<n; i++){
+            System.out.print(fibo(i)+" ");
+        }
+        System.out.println();
+
+        int reverse = reverse(number);
+        System.out.println("Reversed Number is "+reverse);
+
+        System.out.println("The given number is a palindrome: "+ ispalin(number));
+    }
+}
+
+
+output:
+Sum of digits is: 9
+Fibonacci Series 0 1 1 2 3 5 8
+Reversed Number is 12321
+The given number is a palindrome: true
